@@ -1,40 +1,42 @@
 // App.js
-import { Component } from 'react'
-import {Route, Routes,BrowserRouter} from 'react-router-dom'
-import Chronopage from "./Chronopage"
+import { Component } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import Chronopage from "./Chronopage";
 import Home from "./Home";
-import ReactContext from './context/ReactContext'
+import ReactContext from "./context/ReactContext";
 import Footer from "./Footer";
-import './App.css'
+import "./App.css";
 
 class App extends Component {
-  state = { pageDetails: {} ,
-  chronoList:[]
-  }
+  state = { pageDetails: {}, chronoList: [] };
 
-  changeDetails = fetchedObject => {
+  /* changeDetails = fetchedObject => {
     this.setState({ pageDetails: fetchedObject })
-  }
+  }*/
 
   changeChrono = (fetchedList) => {
-    this.setState({ chronoList: fetchedList })
-  }
+    this.setState({ chronoList: fetchedList });
+  };
 
   render() {
-    const { pageDetails,chronoList } = this.state
+    const { pageDetails, chronoList } = this.state;
     return (
       <ReactContext.Provider
-        value={{ pageDetails,chronoList, changeDetails: this.changeDetails,changeChrono:this.changeChrono }}
-      >
+        value={{
+          pageDetails,
+          chronoList,
+          changeDetails: this.changeDetails,
+          changeChrono: this.changeChrono,
+        }}>
         <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home/>}/>
-          <Route exact path="/chrono" element={<Chronopage/>}/>
-        </Routes>
-        <Footer/>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/chrono" element={<Chronopage />} />
+          </Routes>
+          <Footer />
         </BrowserRouter>
       </ReactContext.Provider>
-    )
+    );
   }
 }
 

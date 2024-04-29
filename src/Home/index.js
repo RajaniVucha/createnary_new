@@ -1,18 +1,18 @@
-import React, { Component} from "react";
-import {Link} from "react-router-dom";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import Audience from "../Audience";
 import Mainpage from "../Mainpage";
 import Earnings from "../Earnings";
-import Questions from "../Questions"
-import ReactContext from '../context/ReactContext';
+import Questions from "../Questions";
+import ReactContext from "../context/ReactContext";
 import "./index.css";
 class Home extends Component {
   state = {
     fetchData: {},
-    changeList: []
+    changeList: [],
   };
 
-  componentDidMount() {
+  /*componentDidMount() {
     this.pageDetails();
   }
 
@@ -32,7 +32,7 @@ class Home extends Component {
       });
     }
   };
-
+*/
   updateContext = () => {
     const { fetchData, changeList } = this.state;
     const { changeDetails, changeChrono } = this.context; // Access context here
@@ -46,7 +46,7 @@ class Home extends Component {
         <Mainpage />
         <Audience />
         <Earnings />
-        <Questions/>
+        <Questions />
       </div>
     );
   }
